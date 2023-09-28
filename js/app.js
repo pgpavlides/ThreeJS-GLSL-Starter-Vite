@@ -47,8 +47,9 @@ export default class Sketch{
     }
 
     addObjects(){
-        this.geometry = new THREE.PlaneGeometry(1,0.005,10);
+        this.geometry = new THREE.PlaneGeometry(1,0.05,10);
         this.material = new THREE.MeshNormalMaterial({ side: THREE.DoubleSide });
+        this.material.wireframe = true;
 
         this.invMesh = new THREE.Mesh(this.geometry,this.material)
 
