@@ -11,7 +11,7 @@ Basic starter using ThreeJS and vite module for glsl.
 
 Create vite config if it doesnt exist.
 
-```js
+`js
 
 import glsl from 'vite-plugin-glsl';
 import { defineConfig } from 'vite';
@@ -20,4 +20,4 @@ export default defineConfig({
   plugins: [glsl()]
 });
 
-```
+`
