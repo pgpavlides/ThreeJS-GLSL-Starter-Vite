@@ -1,0 +1,18 @@
+{
+  "name": "three-js-template",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^4.4.5"
+  },
+  "dependencies": {
+    "three": "^0.156.1",
+    "vite-plugin-glsl": "^1.1.2"
+  }
+}
