@@ -21,7 +21,7 @@ export default class Sketch{
        
 
         this.camera = new THREE.PerspectiveCamera(70, this.width / this.height, 0.01, 10);
-        this.camera.position.z = 2;
+        this.camera.position.z = 1;
 
         this.controls = new OrbitControls(this.camera, this.renderer.domElement);
 
@@ -47,8 +47,10 @@ export default class Sketch{
     }
 
     addObjects(){
-        this.geometry = new THREE.PlaneGeometry(1,1,50,50);
-        this.material = new THREE.MeshNormalMaterial();
+        this.geometry = new THREE.PlaneGeometry(1,0.005,10);
+        this.material = new THREE.MeshNormalMaterial({ side: THREE.DoubleSide });
+
+        this.invMesh = new THREE.Mesh(this.geometry,this.material)
 
         this.material = new THREE.ShaderMaterial({
             uniforms: {
@@ -59,13 +61,14 @@ export default class Sketch{
         })
 
         this.mesh = new THREE.Points(this.geometry, this.material);
-        this.scene.add(this.mesh);
+        
+        this.scene.add(this.mesh,this.invMesh);
     }
 
     render(){
-        this.time += 0.003;
+        this.time += 0.005;
 
-        this.material.uniforms.time.value = this.time;
+        // this.material.uniforms.time.value = this.time;
 
 
         this.renderer.render(this.scene, this.camera);
